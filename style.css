@@ -1,0 +1,12 @@
+.container{
+    text-align: center;
+}
+button{
+    background-color:rgb(218, 173, 210) ;
+    color: black;
+    width: 100px;
+    height: 50px;
+    font-weight: 600;
+    border-radius:20%;
+    font-size: medium;
+}
