@@ -13,6 +13,7 @@ function getComputerChoice() {
 // global scores
 let humanScore = 0;
 let computerScore = 0;
+let round=0;
 
 function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
@@ -35,24 +36,26 @@ function getHumanChoice(){
   const btnPaper = document.querySelector(".paper");
   const btnScissors = document.querySelector(".scissors");
   const announce= document.querySelector(".announce");
-
-  btnRock.addEventListener("click", () => {
-    const result = playRound("rock", getComputerChoice());
-    console.log(result);
-    announce.textContent= `${result} | human score:${humanScore} - computer score:${computerScore}`;
-  });
-
-  btnPaper.addEventListener("click", () => {
-    const result = playRound("paper", getComputerChoice());
-    console.log(result);
-    announce.textContent= `${result} | human score:${humanScore} - computer score:${computerScore}`;
-  });
-
-  btnScissors.addEventListener("click", () => {
-    const result = playRound("scissors", getComputerChoice());
-    console.log(result);
-    announce.textContent= `${result} | human score:${humanScore} - computer score:${computerScore}`;
-  });
+  
+  function handleClick(choice){
+    if(round>=5) return;
+    round++;
+    const result = playRound(choice,getComputerChoice());
+    announce.textContent = `Round ${round}: ${result} | Human: ${humanScore} - Computer: ${computerScore}`;
+    //final winner
+    if(round==5){
+     if(humanScore>computerScore){
+        announce.textContent=`congratulation, you won |you: ${humanScore} - computer: ${computerScore}`;
+     }else if(computerScore>humanScore){
+        announce.textContent= `computer won| you: ${humanScore} - computer: ${computerScore} `;
+     }else{
+        announce.textContent=`It is a tie | you: ${humanScore} - computer: ${computerScore}`;
+     }
+    }
+  }
+  btnRock.addEventListener("click", () => handleClick("rock"));
+    btnPaper.addEventListener("click", () => handleClick("paper"));
+    btnScissors.addEventListener("click", () => handleClick("scissors"));
 }
 
 
