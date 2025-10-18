@@ -34,20 +34,24 @@ function getHumanChoice(){
   const btnRock = document.querySelector(".rock");
   const btnPaper = document.querySelector(".paper");
   const btnScissors = document.querySelector(".scissors");
+  const announce= document.querySelector(".announce");
 
   btnRock.addEventListener("click", () => {
     const result = playRound("rock", getComputerChoice());
     console.log(result);
+    announce.textContent= `${result} | human score:${humanScore} - computer score:${computerScore}`;
   });
 
   btnPaper.addEventListener("click", () => {
     const result = playRound("paper", getComputerChoice());
     console.log(result);
+    announce.textContent= `${result} | human score:${humanScore} - computer score:${computerScore}`;
   });
 
   btnScissors.addEventListener("click", () => {
     const result = playRound("scissors", getComputerChoice());
     console.log(result);
+    announce.textContent= `${result} | human score:${humanScore} - computer score:${computerScore}`;
   });
 }
 
