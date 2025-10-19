@@ -54,8 +54,8 @@ function getHumanChoice(){
     }
   }
   btnRock.addEventListener("click", () => handleClick("rock"));
-    btnPaper.addEventListener("click", () => handleClick("paper"));
-    btnScissors.addEventListener("click", () => handleClick("scissors"));
+  btnPaper.addEventListener("click", () => handleClick("paper"));
+  btnScissors.addEventListener("click", () => handleClick("scissors"));
 }
 
 
